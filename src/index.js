@@ -4,12 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import awsconfig from './aws-exports';
+import Amplify from 'aws-amplify';
+
+Amplify.configure(awsconfig);
+
+Amplify.configure({
+  API: {
+      endpoints: [
+          {
+              name: "MyApi",
+              endpoint: 'https://o5r0ygbwh3.execute-api.us-east-1.amazonaws.com/',
+              region: 'us-east-1'
+          }
+      ]
+}
+});
+
+ReactDOM.render(<App />,document.getElementById('root'));
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
