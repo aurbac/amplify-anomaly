@@ -256,12 +256,11 @@ class App extends React.Component {
                     <Typography variant="body1" gutterBottom>
                       In Lookout for Metrics, you create detectors that monitor data to find anomalies. You configure the detector with a datasource and choose the values that it monitors (the dataset's measures). The detector can monitor all values of a measure overall, or use other data to sort measures into groups. For example, you can choose to monitor the availability of an application worldwide, or use a location field in your data as a dimension to monitor availability separately in each AWS Region or Availability Zone. Each combination of measure and dimension value is called a metric.
                     </Typography>
-                    
                   </div>
                 ):(
                   <div>
-                    <Typography gutterBottom variant="h4" component="h2">Anomaly: {this.state.anomalySelected.PrimaryMetricName} <Chip label={this.state.anomalySelected.AnomalyGroupScore} color="primary" /></Typography>
-                    
+                    <Typography gutterBottom variant="h4" component="h2">Anomaly: {this.state.anomalySelected.PrimaryMetricName}</Typography>
+                    <Typography variant="subtitle1" gutterBottom><strong>Severity threshold: <Chip label={this.state.anomalySelected.AnomalyGroupScore} color="primary" /></strong></Typography>
                     <Typography variant="subtitle1" gutterBottom>
                       <strong>Start time:</strong> {this.state.anomalySelected.StartTime}
                     </Typography>
